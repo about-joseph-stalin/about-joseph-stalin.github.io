@@ -1,145 +1,125 @@
 <!DOCTYPE html>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const button = document.querySelector('.title-button');
-        button.addEventListener('click', function() {
-            // Create the popup
-            const popup = document.createElement('div');
-            popup.innerHTML = `
-                <div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; z-index: 1000;">
-                    <iframe src="./popupsettings.html" style="width:600px; height:400px; border:none;"></iframe>
-                </div>`;
-            document.body.appendChild(popup);
-
-            // Animation for the popup
-            popup.style.opacity = 0;
-            let opacity = 0;
-            const interval = setInterval(function() {
-                if (opacity < 1) {
-                    opacity += 0.05;
-                    popup.style.opacity = opacity;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 20);
-
-            // Click outside iframe to remove the popup
-            popup.addEventListener('click', function(event) {
-                if (event.target === popup) {
-                    popup.remove();
-                }
-            });
-        });
-    });
-</script>
-
-<html>
+<html lang="en">
 <head>
-    <title>Geometry Explained</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Escobar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                #f0f0f0,
-                #f0f0f0 10px,
-                #e0e0e0 10px,
-                #e0e0e0 20px
-            );
-            color: #000;
+            background-color: #f0f0f0;
         }
-        .title-button {
-            background: none;
-            border: none;
-            color: black;
-            font-size: 2em;
-            cursor: pointer;
-            transition: color 0.5s ease; /* Smooth transition for color change */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
-        .title-button:hover, .title-button:focus {
-            color: #1E90FF; /* Original title color, makes the button 'appear' on hover/focus */
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
         }
-        h2 {
-            color: #008000;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
         }
-        ul {
-            list-style-type: disc;
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content {
+            padding: 20px;
         }
         footer {
-            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            color: #777;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <button class="title-button">Welcome to the World of Geometry</button>
-    
-    <h2>Introduction to Geometry</h2>
-    <p>Geometry is a branch of mathematics that deals with the study of shapes, sizes, properties, and dimensions of objects in space. It plays a crucial role in various fields, from architecture to physics.</p>
-    
-    <h2>Types of Geometry</h2>
-    <ul>
-        <li><strong>Euclidean Geometry:</strong> This is the traditional geometry developed by Euclid. It deals with flat surfaces and is based on axioms, theorems, and postulates.</li>
-        <li><strong>Non-Euclidean Geometry:</strong> In contrast to Euclidean geometry, this branch explores geometries on curved surfaces and includes hyperbolic and elliptic geometries.</li>
-        <li><strong>Analytic Geometry:</strong> This involves using algebraic methods to study geometry, often in the context of coordinate systems and equations.</li>
-        <li><strong>Differential Geometry:</strong> It focuses on the study of curves and surfaces, applying principles from calculus to understand their properties.</li>
-        <li><strong>Projective Geometry:</strong> This branch explores properties that are preserved under projective transformations, crucial in computer graphics and computer vision.</li>
-    </ul>
-    
-    <h2>Geometry in Everyday Life</h2>
-    <p>Geometry is all around us, from the shapes of buildings to the patterns in nature. Understanding the various types of geometry helps us comprehend the world we live in.</p>
-    
-    <h2>Learn Geometry Online</h2>
-    <p>If you want to learn more about geometry, here are some websites that can help:</p>
-    <ul>
-        <li><a href="https://www.khanacademy.org/math/geometry" target="_blank">Khan Academy - Geometry</a></li>
-        <li><a href="https://www.geogebra.org/" target="_blank">GeoGebra - Dynamic Mathematics</a></li>
-        <li><a href="https://aleks.com" target="_blank">ALEKS &ndash; Adaptive Learning & Assessment for Math, Chemistry, Statistics & More</a></li>
-    </ul>
-    
-    <footer>
-        <p id="hiddenButton" style="cursor: pointer; background-color: transparent; border: none;">&copy; 2023 Math Online</p>
+    <header>
+        <h1>Pablo Escobar</h1>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#legacy">Legacy</a>
+        <a href="#media">Media</a>
+        <a href="#gallery">Gallery</a>
+    </nav>
+    <div class="container">
+        <div id="about" class="content">
+            <h2>About Pablo Escobar</h2>
+            <p>Pablo Emilio Escobar Gaviria (December 1, 1949 – December 2, 1993) was a Colombian drug lord and narco-terrorist who was the founder and sole leader of the Medellín Cartel. Born in Rionegro, Colombia, Escobar grew up in nearby Medellín. He studied briefly at Universidad Autónoma Latinoamericana of Medellin but left without a degree when he began to engage in criminal activity.</p>
+            <p>Escobar's criminal empire included smuggling cocaine into the United States, where he supplied an estimated 80% of the cocaine smuggled into the country during the height of his career. His cartel was responsible for countless deaths and the corruption of Colombian politics.</p>
+            <p>Despite his criminal activities, Escobar was viewed by some as a Robin Hood-like figure due to his charitable endeavors in Colombia, where he built hospitals, schools, and churches in poor communities.</p>
+            <p>However, his reign of terror came to an end when he was killed by Colombian authorities in a rooftop shootout in 1993.</p>
+            <p>For more information, you can visit <a href="https://en.wikipedia.org/wiki/Pablo_Escobar" target="_blank">Wikipedia</a>.</p>
+        </div>
+        <div id="legacy" class="content">
+            <h2>Legacy</h2>
+            <p>Escobar's legacy is one of the most controversial in recent history. He became one of the wealthiest criminals in history, with an estimated net worth of US $30 billion by the early 1990s. His drug cartel supplied an estimated 80% of the cocaine smuggled into the United States at the height of his career, turning over US $21.9 billion a year in personal income. He was often called "The King of Cocaine" and was widely regarded as one of the most powerful drug lords in history.</p>
+            <p>Escobar's life and criminal activities have been the subject of numerous books, films, and television series, including the critically acclaimed Netflix series "Narcos." His notoriety continues to fascinate people worldwide, sparking debates about crime, power, and corruption.</p>
+            <p>For more information about Escobar's legacy, you can read this <a href="https://www.biography.com/crime-figure/pablo-escobar" target="_blank">Biography article</a>.</p>
+        </div>
+        <div id="media" class="content">
+            <h2>Media</h2>
+            <p>Escobar has been the subject of numerous books, films, and television series, including the critically acclaimed Netflix series "Narcos." His life and criminal activities continue to be a source of fascination for many people worldwide.</p>
+            <p>For more information about media coverage of Pablo Escobar, you can check out this <a href="https://www.imdb.com/name/nm0010192/" target="_blank">IMDb page</a>.</p>
+        </div>
+        <div id="gallery" class="content">
+            <h2>Gallery</h2>
+            <p>Gallery section can include images related to Pablo Escobar, such as photos from his life, his criminal activities, and media coverage.</p>
+        </div>
+    </div>
+    <footer id="footer">
+        &copy; 2024 About Pablo Escobar
     </footer>
     <script>
-        document.getElementById("hiddenButton").addEventListener("click", function() {
-            const blocks = document.querySelectorAll('body > *'); // Get all direct children of the body
-    
-            let index = 0;
-            const removeInterval = setInterval(function() {
-                if (index < blocks.length) {
-                    blocks[index].style.opacity = 0; // Set opacity to 0 for fade-out effect
-                    blocks[index].style.transition = 'opacity 0.5s ease'; // Add transition for smooth effect
-                    blocks[index].style.pointerEvents = 'none'; // Disable pointer events to prevent interaction
-                    index++;
+        document.getElementById("footer").addEventListener("click", function() {
+            // Slowly delete elements
+            var elements = document.getElementsByClassName("container")[0].children;
+            var index = 0;
+            var deleteInterval = setInterval(function() {
+                if (index >= elements.length) {
+                    clearInterval(deleteInterval);
+                    // Open fullscreen iframe
+                    openFullscreenIframe();
                 } else {
-                    clearInterval(removeInterval);
-                    const proxyItem = localStorage.getItem("proxy");
-                    console.log(proxyItem)
-                    let iframeUrl;
-                    if (proxyItem === 'astroid') {
-                        iframeUrl = 'https://astroid.mathonline.click/worksheets';
-                    } else if (proxyItem === 'interstellar') {
-                        iframeUrl = 'https://n-eight-lime.vercel.app/';
-                    } else if (proxyItem === 'hypertabs') {
-                        const randomNum = Math.random();
-                        iframeUrl = randomNum < 0.5 ? 'https://anurann.mathonline.click/browser.html' : 'https://anura.mathonline.click/browser.html';
-                    } else if (proxyItem === 'cloak3r'){
-                        iframeUrl='./test2.html';
-                    }else{
-                        const randomNum = Math.random();
-                        iframeUrl = randomNum < 0.5 ? 'https://anurann.mathonline.click/browser.html' : 'https://anura.mathonline.click/browser.html';
-                    }
-    
-                    console.log("Iframe URL:", iframeUrl);
-                    console.log("Viewport Height:", window.innerHeight);
-                    
-                    document.body.innerHTML = `<iframe src="${iframeUrl}" width="100%" height="${window.innerHeight}px"></iframe>`; // Remove all HTML content from the body
+                    elements[index].style.opacity = "0";
+                    index++;
                 }
-            }, 100);
+            }, 500); // Change the interval as desired
+
+            // Function to open fullscreen iframe
+            function openFullscreenIframe() {
+                var iframe = document.createElement("iframe");
+                iframe.setAttribute("src", "./test2.html");
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.position = "fixed";
+                iframe.style.top = "0";
+                iframe.style.left = "0";
+                iframe.style.border = "none";
+                document.body.innerHTML = ""; // Clear body
+                document.body.appendChild(iframe);
+            }
         });
-    </script>    
+    </script>
 </body>
 </html>
