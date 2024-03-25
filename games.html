@@ -265,10 +265,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var gameButton = document.createElement('button');
         var isFavorite = favorites.includes(button.getAttribute('data-url'));
         
+        gameButton.classList.add('game-button');
         if (isFavorite) {
-            gameButton.classList.add('favorite-game');
-        } else {
-            gameButton.classList.add('normal-game');
+            gameButton.classList.add('favorite');
         }
 
         var gameName = button.getAttribute('data-name') || button.textContent.trim();
@@ -276,21 +275,20 @@ document.addEventListener('DOMContentLoaded', function () {
         gameButton.setAttribute('data-url', button.getAttribute('data-url'));
         gameButton.setAttribute('data-name', gameName);
 
+        button.parentNode.replaceChild(gameButton, button);
+
+        gameButton.addEventListener('click', function () {
+            var gameUrl = gameButton.getAttribute('data-url');
+            window.location.href = gameUrl;
+        });
+
         var favoriteButton = document.createElement('button');
         favoriteButton.classList.add('favorite-button');
         favoriteButton.textContent = 'Favorite';
         gameButton.appendChild(favoriteButton);
 
-        button.parentNode.replaceChild(gameButton, button);
-
-        gameButton.addEventListener('click', function (event) {
-            if (!event.target.classList.contains('favorite-button')) {
-                var gameUrl = gameButton.getAttribute('data-url');
-                window.location.href=gameUrl
-            }
-        });
-
         favoriteButton.addEventListener('click', function (event) {
+            event.stopPropagation();
             var gameUrl = gameButton.getAttribute('data-url');
             var gameName = gameButton.getAttribute('data-name');
             if (!favorites.includes(gameUrl)) {
@@ -300,19 +298,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    document.getElementById('searchBox').addEventListener('input', function (e) {
-    var searchText = e.target.value.toLowerCase();
-    var gameButtons = document.querySelectorAll('.normal-game, .favorite-game');
-
-    gameButtons.forEach(function (gameButton) {
-        if (gameButton.textContent.toLowerCase().includes(searchText)) {
-            gameButton.style.display = 'block';
-        } else {
-            gameButton.style.display = 'none';
-        }
-    });
-});
-
 
     function displayFavorites() {
         var favoritesContainer = document.getElementById('favorites');
@@ -320,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         favorites.forEach(function (favorite, index) {
             var gameButton = document.createElement('button');
-            gameButton.classList.add('favorite-game');
+            gameButton.classList.add('game-button', 'favorite');
             gameButton.setAttribute('data-url', favorite);
 
             var gameName = document.querySelector(`[data-url="${favorite}"]`).getAttribute('data-name');
@@ -341,19 +326,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 displayFavorites();
             });
 
-            gameButton.addEventListener('click', function (event) {
-                if (!event.target.classList.contains('favorite-button') && !event.target.classList.contains('remove-button')) {
-                    var gameUrl = gameButton.getAttribute('data-url');
-                window.location.href=gameurl;
-                            }
+            gameButton.addEventListener('click', function () {
+                var gameUrl = gameButton.getAttribute('data-url');
+                window.location.href = gameUrl;
             });
         });
     }
 
     displayFavorites();
 });
-function toggleCategory(categoryId) {
-        var category = document.getElementById(categoryId);
-        category.classList.toggle('collapsed');
-    }
 </script>
+
