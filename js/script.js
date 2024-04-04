@@ -11,7 +11,14 @@ window.addEventListener('beforeunload', function (e) {
           e.returnValue = 'anti-closing, brought to you by stupid'; // For some older browsers
       }});
 
-
+      function Bookmark() {
+        document.getElementById('contentFrame').style.display='block';
+        HideButtons();
+        let iframe = document.getElementById('contentFrame');
+        iframe.srcdoc = `
+        <iframe src="./testmark.html" width=100% height=${contentFrame.clientHeight}>`;
+    }
+  
 
   
   function HideButtons() {
